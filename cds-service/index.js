@@ -5,6 +5,7 @@ const app = express()
 app.use(express.json())
 
 app.get('/cds-services', (req, res)=> {
+    // res.send('hello') with '/'
     res.json({
         services: [
             {
@@ -14,6 +15,11 @@ app.get('/cds-services', (req, res)=> {
                 prefetch: {
                     patient: "Patient/{{context.patientId}}",
                     conditions: "Condition?patient={{context.patientId}}&recorded-date=gt{{today() - 10 years}}"
+                    // conditions: "Condition?patient={{context.patientId}}&recorded-date=gt{{today() - 10 years}}&some={{context.draftOrders.entry.ofType(Patient).first().name.given}}"
+
+                    // conditions: "Condition?patient={{context.patientId}}"
+
+
                 },
             }
         ]
@@ -30,6 +36,8 @@ app.post('/cds-services/:id', (req, res)=> {
     const firstName = patient.name[0].given[0]
     const secondName = patient.name[0].family
     // your app logic goes here
+
+    //cards logic
     res.json({
         cards:
         conditions.total === 0
@@ -39,18 +47,18 @@ app.post('/cds-services/:id', (req, res)=> {
                 summary: `Hello ${firstName} ${secondName}, you have ${conditions.total} Conditions`,
                 indicator: 'warning',
                 source: {
-                    label: 'my service!'
+                    label: 'WGCA Health Services'
                 },
                 links: [
                     {
-                        label: 'google it',
-                        url: 'https://google.com',
-                        type: 'absolute' 
+                        label: 'WGCA Health App',
+                        url: 'http://localhost:4434/launch',
+                        type: 'absolute' //to start the app using cds hooks
                     },
                     {
-                        label: 'my app',
+                        label: 'WGCA Smart Health App',
                         url: 'http://localhost:4434/launch',
-                        type: 'smart' 
+                        type: 'smart' //to start the app using smart app launch
                     }
                 ]
             }
