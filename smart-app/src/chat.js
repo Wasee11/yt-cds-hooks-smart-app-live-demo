@@ -8,8 +8,8 @@ document.querySelector('#chat').innerHTML = `
     <div class="chat-wrapper bg-white/20 backdrop-blur-lg rounded-lg shadow-lg p-6 border border-white/30">
       <!-- Header -->
       <header class="text-center mb-4">
-        <h1 class="text-3xl font-bold bg-gradient-to-r from-blue-500 to-medical-blue text-transparent bg-clip-text">Healthcare Assistant</h1>
-        <p class="text-gray-300">How can I assist you today?</p>
+        <h1 class="text-3xl font-bold bg-gradient-to-r from-blue-500 to-medical-blue text-transparent bg-clip-text">Welcome!</h1>
+        <p class="text-gray-300">To the WGCA Smart Health App</p>
       </header>
 
       <!-- Chat Messages -->

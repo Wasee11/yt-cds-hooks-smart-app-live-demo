@@ -35,6 +35,7 @@ export function setupChat(chatContainer, inputElement, sendButton) {
       inputElement.value = ''; // Clear the input field
 
       const response = await axios.post(N8N_WEBHOOK_URL, { message });
+      console.log('Full response:', response); // Log the entire response object
 
       if (response.data && response.data.response) {
         addMessage(response.data.response);
