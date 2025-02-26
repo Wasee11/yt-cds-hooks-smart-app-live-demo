@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export function setupChat(chatContainer, inputElement, sendButton) {
-  const N8N_WEBHOOK_URL = 'http://localhost:5678/webhook/retrieve-chat'; // Replace with your actual webhook URL
+  const N8N_WEBHOOK_URL = 'http://localhost:5678/webhook/retrieve-chat'; // n8n rag webhook URL
 
   // Create the input box and send button inside the chat container
   const inputContainer = document.createElement('div');
